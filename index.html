@@ -13,31 +13,48 @@
     <body>
         <!-- iniziamo creando una navbar, responsive, che faccia qualcosa di utile grazie al potere jQ + Boot4 -->
         <!-- partiamo da un tag nav (molto più chiacchierino di un div) e la sua classe navbar che serve a caratterizzare il componente, ma servono almeno un altro paio di classi. In questo caso navbar-expand-lg indica un'espansione della navbar su desktop: bg-dark ne fa lo sfondo scuro (si potrebbero usare anche le classi primaty,secondary,info,warning,light...insomma: tutte le classi che danno stile di colore in Bootstrap)-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
             <div class="container">
                 <!-- il navbar-brand aiuta a mettere un brand, un logo, una scritta...ricorda che se vuoi puoi mettere tutto dentro un container di modo che la navbar continui ad occupare tutta la viewport ma il suo contenuto abbia dei margini, spazio alla fantasia!! -->
                 <a class="navbar-brand" href="#">
                     <img src="images/logo.png" width="30" height="30" class="d-inline-block aligh-top">
                     We Love jQ
                 </a>
-                <!-- navbar-nav qua serve a garantire la visualizzazione della lista non ordinata, ml-auro imposta il margine-right in auto (vale anche ml, mx per l'orizzontale, come dire left and right, e my per il verticale, come dire top and bottom) -->
-                <ul class="navbar-nav mr-auto">
-                    <!-- nav-item qua si usa solo come supporto a Js, non ha puri compiti stilistici. Active evidenza utile per capire qua quale pagina siamo-->
-                    <li class="nav-item active">
-                        <!-- nav-link introduce stile invece -->
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <input type="search" class="form-control mr-sm-2" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <!-- qui potremmo inserire il nostro piccolo Hamburger, e nasce la magia: quel data-toggle collapse gestisce lo switch tra hide e show del suo sottomenu, il data-target specifica chi è,tramite id, il suo sottomenu -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <!-- questo span è l'Hamburger in sè -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- quel navbar collapse è mostruoso; gia impostato per collassare tutto ad una certa viewport -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- navbar-nav qua serve a garantire la visualizzazione della lista non ordinata, ml-auro imposta il margine-right in auto (vale anche ml, mx per l'orizzontale, come dire left and right, e my per il verticale, come dire top and bottom) -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- nav-item qua si usa solo come supporto a Js, non ha puri compiti stilistici. Active evidenza utile per capire qua quale pagina siamo-->
+                        <li class="nav-item active">
+                            <!-- nav-link introduce stile invece -->
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <!-- questo dropdown gli assegna una position relative -->
+                        <li class="nav-item dropdown">
+                            <!-- il dropdown toggle mette la freccettina verso il giù per aprire un sottomenu, attenzione anche al data-toggle dropdown, immancabile in questo contesto, gestische lo show and hide -->
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Our Team</a>
+                            <!-- dropdown-menu è spaziale: questa classe gestisce sia lo stile grafico che la posizione del menu. Stesso identico discorso per i dropdown-item figli -->
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Superman</a>
+                                <a href="#" class="dropdown-item">Batman</a>
+                                <a href="#" class="dropdown-item">Flash</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- utile anche aggiungere un form-inline dove basta semplice impostare e giocare con i margini ai vari livelli di grnadezza schermo e il gioco è fatto -->
+                    <form class="form-inline">
+                        <input type="search" class="form-control mr-sm-2" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
         </nav>
         <script src="script.js" charset="utf-8"></script>
